@@ -9,13 +9,17 @@ use App\Suplier;
 
 class MasterBarangController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
     public function index()
     {
         $barangs = \App\Barang::all();
 
         return view('masterbarang.index', compact('barangs'));
     }
-    
+
     public function create()
     {
         $supliers = Suplier::all();
@@ -26,7 +30,6 @@ class MasterBarangController extends Controller
     {
         $suplier = Barang::create([
             'suplier_id' => $request->suplier_id,
-            'kode_barang' => $request->kode_barang,
             'nama_barang' => $request->nama_barang,
             'quantity' => $request->quantity,
 
@@ -59,6 +62,7 @@ class MasterBarangController extends Controller
     public function show($id)
     {
         $barang = Barang::findOrFail($id);
+
 
         return view('masterbarang.detail', compact('barang'));
     }

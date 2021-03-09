@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
@@ -20,9 +20,9 @@
                             <div class="form-group">
                                 <label for="suplier_id">Nama Suplier</label>
                                 <select name="suplier_id" id="suplier_id" class="form-control">
-                                    <option value="">- Pilih suplier -</option>
+                                    <option value="">- pilih suplier -</option>
                                     @foreach ($supliers as $suplier)
-                                        <option value="{{$suplier->id}}">{{$suplier->name}}</option>
+                                        <option value="{{$suplier->id}}">{{$suplier->nama}}</option>
                                     @endforeach
                                 </select>
                             </div>

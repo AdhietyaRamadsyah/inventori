@@ -9,51 +9,44 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a href="{{route('master-barang')}}" class="nav-link">Master Barang</a>
-                    </li> 
-                <li class="nav-item">
-                 <a href="{{route('transaksi')}}" class="nav-link">Data Tranksaksi</a>
-                </li>
-                <li class="nav-item">
-                <a href="{{route('suplier.index')}}" class="nav-link">Data Supplier</a>
-                </li>
-            </ul>
-        <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ml-auto">
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
+                </li>
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+                @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="{{route('master-barang')}}" class="nav-link">Master Barang</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('transaksi')}}" class="nav-link">Data Tranksaksi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('suplier')}}" class="nav-link">Data Supplier</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                        </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
                 @endguest
             </ul>
         </div>
     </div>
 </nav>
-
-           

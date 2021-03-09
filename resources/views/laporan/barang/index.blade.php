@@ -8,7 +8,7 @@
                 <b>
                     <h3>Inventori
                         <br>
-                        Jl..................
+                        Jl AL Bahri
                     </h3>
                     <hr>
                 </b>

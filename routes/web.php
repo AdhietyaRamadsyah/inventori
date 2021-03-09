@@ -31,6 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
      Route::get('/index', 'MasterBarang\MasterBarangController@index')->name('master-barang');
      Route::get('/formulir-barang', 'MasterBarang\MasterBarangController@create')->name('master-barang.formulir-barang');
      Route::get('laporan-barang', 'Laporan\BarangController@index')->name('laporan.periode.barang');
+     Route::get('suplier-barang', 'Laporan\SuplierController@index')->name('laporan.periode.suplier');
      Route::post('store','MasterBarang\MasterBarangController@store')->name('master-barang.store');
      Route::get('/edit/{barang}', 'MasterBarang\MasterBarangController@edit')->name('master-barang.edit');
      Route::patch('update/{barang}','MasterBarang\MasterBarangController@update')->name('master-barang.update');
@@ -46,7 +47,7 @@ Route::get('/home', 'HomeController@index')->name('home');
  });
 
  Route::group(['prefix'=> 'suplier'], function(){
-    Route::get('index','Suplier\SuplierController@index')->name('suplier.index');
+    Route::get('index','Suplier\SuplierController@index')->name('suplier');
     Route::get('create','Suplier\SuplierController@create')->name('suplier.create');
     Route::post('store','Suplier\SuplierController@store')->name('suplier.store');
     Route::get('edit/{suplier}','Suplier\SuplierController@edit')->name('suplier.edit');

@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 
 class SuplierController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+    
     public function index()
     {
         $supliers = Suplier::all();
